@@ -20,7 +20,10 @@ def get_all():
          tonghop["time"]=c
          l2.append(tonghop)
    return list(l2)   
-
+def clear_thisweek():
+   db1.thisweek1.drop()
+def insert_data(a,b):
+       db.lichdau1.insert_one({'Đội':b,'lichdau':a})
 def insert(thisweek1):
    db1.thisweek1.insert_one({"Tuần này":thisweek1})
 
@@ -45,3 +48,4 @@ def match_this_week():
          tonghop["logo2"]=logo2
          tw.append(tonghop)
    return(tw)
+
