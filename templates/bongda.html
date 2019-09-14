@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">       
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">    
+    
+    <title>Bongda</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md sticky-top">
+        <div class="container-fluid">
+            <img src="https://img.lovepik.com/element/40089/0812.png_860.png!/format/webp" height="50">
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="narbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="/" >Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#team">Team</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/#lamviec">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../static/images/EPL.jpg" class="d-block w-100" alt="EPL">
+              </div>
+              <div class="carousel-item">
+                <img src="../static/images/laliga.jpg" class="d-block w-100" alt="Laliga">
+              </div>
+              <div class="carousel-item">
+                <img src="../static/images/bunleliga.jpg" class="d-block w-100" alt="Bunlesliga">
+              </div>
+              <div class="carousel-item">
+                    <img src="../static/images/league1.jpg" class="d-block w-100" alt="league1">
+                </div>
+            <div class="carousel-item">
+                    <img src="../static/images/serieA.jpg" class="d-block w-100" alt="serieA">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+    <hr>
+    <div class="menu">
+      <ul>
+        <li>
+          <div class="box">
+            <span>EPL</span> 
+            <ul class="sub-menu">
+              <li><a href="/lineup/MU">MU</a></li>
+              <li><a href="/lineup/MC">MC</a></li>
+              <li><a href="/lineup/Ars">Arsenal</a></li>
+              <li><a href="/lineup/Tot">Tottenham</a></li>
+              <li><a href="/lineup/Chel">Chelsea</a></li>
+              <li><a href="/lineup/Liv">Liverpool</a></li>
+            </ul> 
+          </div>
+        </li>
+        <li>
+            <div class="box">
+              <span>laliga</span>   
+              <ul class="sub-menu">
+                <li><a href="/lineup/Real">Real</a></li>
+                <li><a href="/lineup/Barca">Barca</a></li>
+                <li><a href="/lineup/Atletico">Atletico</a></li>
+              </ul>                      
+            </div>
+        </li>
+        <li>
+            <div class="box">
+              <span>Bunlesliga</span>  
+              <ul class="sub-menu">
+                <li><a href="/lineup/Bayern">Bayern</a></li>
+                <li><a href="/lineup/Dortmund">Dortmund</a></li>
+                <li><a href="/lineup/Leipzig">Leipzig</a></li>
+              </ul>                       
+            </div>
+        </li>
+        <li>
+            <div class="box">
+              <span>Serie A</span>  
+              <ul class="sub-menu">
+                <li><a href="/lineup/juve">Juventus</a></li>
+                <li><a href="/lineup/napoli">Napoli</a></li>
+                <li><a href="/lineup/intermilan">Inter Milan</a></li>
+              </ul>                       
+            </div>
+        </li>
+        <li>
+            <div class="box">
+              <span>Ligue 1</span>  
+              <ul class="sub-menu">
+                <li><a href="/lineup/PSG">PSG</a></li>
+                <li><a href="/lineup/Monaco">Monaco</a></li>
+                <li><a href="/lineup/Lyon">Lyon</a></li>
+              </ul>                       
+            </div>
+        </li>
+      </ul>
+    </div>
+    <hr>
+    <table border="2" align="center"  >
+     
+      <tr>
+        <th width=200 ><center><span style="color: red;font-size: 40px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Thời gian</span></center></th>
+        <th width=700><center><span style="color:yellowgreen;font-size: 40px;font-family:cursive">Trận đấu</span></center></th>
+        <th width=300> <center><span style="color:mediumblue;font-size: 40px;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Sân</span></center> </th>
+      </tr>
+      {%for v in thisweek%}
+      <tr>
+        <td><center><span style="font-size: 32px">{{v["time"]}}</span></center></td>
+        <td><center> <img src={{v["logo1"]}} width="6%" height="6%"> <strong><span style="font-size: 32px">{{v["team1"]}}</span></strong> <center><span style="color: red;font-size: 30px"> vs</span></center> <img src={{v["logo2"]}} width="6%" height="6%"><strong> <span style="font-size: 32px">{{v["team2"]}}</span></strong> </center></td>
+        <td><center><strong><span style="font-size: 32px">{{v["stadium"]}}</span></strong></center></td>
+      </tr> 
+      {%endfor%}
+    </table>
+    <hr>
+    <div class="container-fluid padding" id="team">
+      <div class="row welcome text-center justify-content-center">
+        <div class="col-12">
+          <h1 class="display-4">Meet our team members</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid padding cot1 ">
+      <div class="row padding justify-content-center">
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top anh2" src="../static/images/IMG_0633.JPG" >
+            <div class="card1">
+              <h4 class="card-title">Trịnh Tuấn Tú</h4>
+              <p class="card-text">Trưởng nhóm tấu hài</p>
+              <p class="card-text">Không có gì ngoài trái tim biết yêu</p>
+              <a href="#" class="btn btn-outline-secondary">See profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top anh2" src="../static/images/69855336_2318585998197025_3822520347979153408_n.png" >
+            <div class="card1">
+              <h4 class="card-title">
+                Trịnh Lê Gia Tuyên	
+              </h4>
+              <p class="card-text">Nghệ sĩ nhân dân 1</p>
+              <p class="card-text">Fan của Arsenal và mọi chuyện dừng lại ở đó</p>
+              <a href="#" class="btn btn-outline-secondary">See profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card">
+            <img class="card-img-top anh2" src="../static/images/70422940_308676569972712_4433295556810375168_n.jpg" >
+            <div class="card1">
+              <h4 class="card-title">
+                Nguyễn Mạnh Kiên
+              </h4>
+              <p class="card-text">Nghệ sĩ nhân dân 2</p>
+              <p class="card-text">Biết chơi cờ tướng quê ở Vĩnh Phúc</p>
+              <a href="#" class="btn btn-outline-secondary">See profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="container-fluid padding" id="lamviec">	
+        <div class="row text-center justify-content-center">
+          <div class="col-md-3
+">
+            <hr class="light">
+            <h5>Liên hệ</h5>
+            <hr>
+            <p>1900-0019</p>
+            <p>Đại học Bách Khoa Hà Nội</p>
+          </div>
+          <div class="col-md-3
+">				
+            <hr class="light">
+            <h5>Giờ làm việc</h5>
+            <hr class="light">
+            <p>T2-T6: 8am - 5pm</p>
+            <p>Cuối tuần: 8am - 12am</p>
+          </div>
+          <div class="col-md-3
+">				
+            <hr class="light">
+            <h5>Dịch vụ</h5>
+            <hr class="light">
+            <p>Cài win dạo</p>
+            <p>Tư vấn tình cảm</p>
+            <p>Tấu hài không giới hạn</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+</html>
