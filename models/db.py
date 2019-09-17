@@ -7,9 +7,9 @@ db = client.Allteam
 db1 = client.thisweek
 def get_all():
    l2=[]
-   list1 = db.lichdau1.find()
+   list1 = db.lichdau11.find()
    for v in list1:     
-      a=v["Lịch đấu"]
+      a=v["lichdau"]
       for b in a: 
          tonghop={}   
          c=b["time"]
@@ -20,13 +20,18 @@ def get_all():
          tonghop["time"]=c
          l2.append(tonghop)
    return list(l2)   
-def clear_thisweek():
+def clear_data():
    db1.thisweek1.drop()
+def clear_data2():
+   db.lichdau11.drop()
 def insert_data(a,b):
-       db.lichdau1.insert_one({'Đội':b,'lichdau':a})
+       db.lichdau11.insert_one({'Đội':b,'lichdau':a})
 def insert(thisweek1):
    db1.thisweek1.insert_one({"Tuần này":thisweek1})
-
+def insert_lineup(a,b,c):
+    db.lineup.insert_one({'Đội':a,'lineup':b,'result':c})
+def clear_database():
+    db.lineup.drop()
 def match_this_week():
    tw=[]
    l1=db1.thisweek1.find()

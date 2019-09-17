@@ -6,12 +6,8 @@ import pymongo
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from bson.objectid import ObjectId
-from db import insert,get_all,clear_thisweek
-client = pymongo.MongoClient("mongodb+srv://admin:Kiennguyen98@cluster0-ic9nh.mongodb.net/test?retryWrites=true&w=majority")
-db = client.thisweek
-
+from db import insert,get_all,clear_data
 while True:
-    clear_thisweek()
     a=get_all()
     datetime_object = datetime.now()
     weeknumber=datetime.date(datetime_object).isocalendar()[1]
@@ -66,14 +62,16 @@ while True:
         a.get('https://www.google.com.vn/?gws_rd=ssl')
         time.sleep(1)
         e = a.find_element_by_name('q')
-        e.send_keys(v['team1']+' vs '+v['team2']+' '+'livematch'+' skysports'+ Keys.ENTER)
-        a.find_element_by_xpath('//div[@class="ellip"][1]').click()
+        e.send_keys(v['team1']+' vs '+v['team2']+' '+'Preview,Live Match'+' skysports'+ Keys.ENTER)
+        a.find_element_by_xpath('//*[@id="rso"]/div[@class="bkWMgd"]/div[@class="srg"]/div[1]/div/div/div[1]/a[1]/h3/div').click()
         t = a.find_element_by_xpath('//li[@class="match-header__detail-item"][3]').text
         v['stadium']=t
         s = a.find_elements_by_xpath('//span[@class="match-head__team-badge"]/img')
         v['logo1'] = s[0].get_attribute('src')
         v['logo2'] = s[1].get_attribute('src')
+    clear_data()
     insert(thisweek1)
-    time.sleep(86400)
+    time.sleep(604.800)
+
 
     

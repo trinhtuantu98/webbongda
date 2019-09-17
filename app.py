@@ -3,7 +3,6 @@ from datetime import datetime,timedelta
 import pymongo
 from models.db import client
 from models.db import get_all,match_this_week
-# client = pymongo.MongoClient("mongodb+srv://admin:Kiennguyen98@cluster0-ic9nh.mongodb.net/test?retryWrites=true&w=majority")
 thisweek=match_this_week()
 
 app = Flask(__name__)
@@ -22,4 +21,4 @@ def lineup(tendoi):
   return render_template('lineup.html',data=data)
 
 if __name__ == '__main__':
-  app.run(host='127.0.0.1', port=8000, debug=True)
+  app.run(host='127.0.0.1', port=8000, debug=False)
