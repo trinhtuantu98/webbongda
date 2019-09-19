@@ -28,8 +28,8 @@ def insert_data(a,b):
        db.lichdau11.insert_one({'Đội':b,'lichdau':a})
 def insert(thisweek1):
    db1.thisweek1.insert_one({"Tuần này":thisweek1})
-def insert_lineup(a,b,c):
-    db.lineup.insert_one({'Đội':a,'lineup':b,'result':c})
+def insert_lineup(a,b,c,d):
+    db.lineup.insert_one({'Đội':a,'lineup':b,'result':c,'img':d})
 def clear_database():
     db.lineup.drop()
 def match_this_week():
@@ -51,6 +51,11 @@ def match_this_week():
          tonghop["stadium"]=stadium
          tonghop["logo1"]=logo1
          tonghop["logo2"]=logo2
-         tw.append(tonghop)
+         count=0
+         for m in tw:
+            if m==tonghop:
+               count=count+1
+         if count==0:
+            tw.append(tonghop)
    return(tw)
 

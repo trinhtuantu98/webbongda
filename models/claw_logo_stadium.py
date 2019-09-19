@@ -1,7 +1,5 @@
-from flask import Flask, render_template
 from datetime import datetime,timedelta
 import time
-from flask import  request, redirect, url_for,session
 import pymongo
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -71,7 +69,7 @@ while True:
         v['logo2'] = s[1].get_attribute('src')
     clear_data()
     insert(thisweek1)
-    time.sleep(604.800)
+    time.sleep(86400)
 
 
     

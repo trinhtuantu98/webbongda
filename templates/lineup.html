@@ -14,10 +14,19 @@
         th{border:2px solid black;}
         td{border:1px solid blue;}
         tr:hover{
-            background-color:#ddd;
+            background-color:rgba(210, 219, 228, 0.8);
             cursor:pointer;
         }
+        body{
+            background-image: url({{data.img}});
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .content{
+            background:rgba(234, 235, 229, 0.6) !important;
+        }
     </style>
+
 </head>
 <body>
     <nav class="navbar navbar-expand-md sticky-top">
@@ -41,16 +50,32 @@
             </ul>
         </div>
     </nav>
-    <div>
+    <div class="content">
         <div>
-            <img>
-            <table  align="center"width="950" height="150"  >    
-                <tr>
-                  <th width=200 ><center><strong><span style="color: red;font-size: 40px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Line Up</span></strong></center></th>
+            <table  align="center"width="950" height="150" border="2" >    
+                <tr><td colspan="9"><center><strong><span style="color:blue; font-size:35px">LINE UP</span></center></strong></td></tr>
+                <tr style="background-color:skyblue">
+                <td><center><strong><span style="font-size:18px">Name</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Position</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Goal</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Assist</span></strong></center></td>
+                <td><center><strong><span style="font-size:16px; color:Yellow">Yellow card</span></strong></center></td>
+                <td><center><strong><span style="font-size:16px; color:red">Red card</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Image</span></strong></center></td>  
+                <td><center><strong><span style="font-size:18px">Number</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Appearance</span></strong></center></td>    
                 </tr>
                  {%for v in data.lineup %}
                 <tr>
-                  <td style="display: flex"><center>{{v}}</center></td>
+                  <td><center><strong>{{v["ten"]}}</strong></center></td>
+                  <td ><center>{{v["vitri"]}}</center></td>
+                  <td ><center>{{v["banthang"]}}</center></td>
+                  <td><center>{{v["assist"]}}</center></td>
+                  <td><center>{{v["thevang"]}}</center></td>
+                  <td><center>{{v["thedo"]}}</center></td>
+                  <td><center><img src="{{v["ava"]}}" width="30%" height="20%"></center></td>
+                  <td><center>{{v["soao"]}}</center></td>
+                  <td><center>{{v["solanrasan"]}}</center></td>
                 </tr>
                 {%endfor%}
             </table>
@@ -58,13 +83,22 @@
         <br>
         <br>
         <div>
-            <table border="2" align="center" width="950" height="150"  >    
-                <tr>
-                  <th width=200 ><center><span style="color: red;font-size: 25px;font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif">Kết quả 5 trận gần nhất</span></center></th>
+            <table  align="center"width="950" height="150" border="2" >    
+                <tr><td colspan="9"><center><strong><span style="color:blue; font-size:35px">RESULT</span></center></strong></td></tr>
+                <tr style="background-color:skyblue">
+                <td><center><strong><span style="font-size:18px">Date</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">League</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Team home</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Score</span></strong></center></td>
+                <td><center><strong><span style="font-size:18px">Team away</span></strong></center></td>  
                 </tr>
-                {%for v in data.result%}
+                 {%for v in data.result %}
                 <tr>
-                  <td><center>{{v}}</center></td>
+                  <td><center><strong>{{v["date"]}}</strong></center></td>
+                  <td ><center>{{v["league"]}}</center></td>
+                  <td ><center>{{v["team home"]}}</center></td>
+                  <td><center>{{v["sco"]}}</center></td>
+                  <td><center>{{v["team away"]}}</center></td>
                 </tr>
                 {%endfor%}
             </table>

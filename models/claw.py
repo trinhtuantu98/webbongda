@@ -4,11 +4,11 @@ from datetime import datetime,timedelta
 from db import insert_data,clear_data2
 import time
 import re
+team = ['MU','Ars','MC','leipzig','Atletico','Barce','Bayern','Chel','Dortmun','Inter','Juv','Liv','Monaco','Napoli','PSG','Real','Roma','Tot']
+browser = webdriver.Chrome()
 while True:
-    clear_data2()
-    team = ['MU','Ars','MC','leipzig','Atletico','Barce','Bayern','Chel','Dortmun','Inter','Juv','Liv','Monaco','Napoli','PSG','Real','Roma','Tot']
-    browser = webdriver.Chrome()
     so_team = 0
+    clear_data2()
     for o in team:
         data = []
         thoigian = []
@@ -37,8 +37,8 @@ while True:
                 j = a[0]+' '+k+' '+a[2]+' '+a[3]+' 20'
             else:
                 j = a[0]+' '+k+' '+a[2]+' '+a[3]+' 19'
-            date = datetime.strptime(j,'%A %d %B %H:%M %y') 
-            data[stt]['time'] = (date)
+            date = datetime.strptime(j,'%A %d %B %H:%M %y') + timedelta(hours=6)
+            data[stt]['time'] = date
             stt += 1
         team1 = browser.find_elements_by_xpath('//span[@class="matches__item-col matches__participant matches__participant--side1"]/span/span')
         team2 = browser.find_elements_by_xpath('//span[@class="matches__item-col matches__participant matches__participant--side2"]/span/span')
@@ -51,5 +51,4 @@ while True:
         insert_data(team[so_team],data)
         print(team[so_team],'xong')
         so_team += 1
-        time.sleep(604800)
-        
+    time.sleep(86400)
