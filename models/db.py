@@ -12,7 +12,7 @@ def get_all():
       a=v["lichdau"]
       for b in a: 
          tonghop={}   
-         c=b["time"]
+         c = b["time"]
          doi1=b["doi"][0]
          doi2=b["doi"][1]
          tonghop["team1"]=doi1
@@ -25,7 +25,7 @@ def clear_data():
 def clear_data2():
    db.lichdau11.drop()
 def insert_data(a,b):
-       db.lichdau11.insert_one({'Đội':b,'lichdau':a})
+       db.lichdau11.insert_one({'Đội':a,'lichdau':b})
 def insert(thisweek1):
    db1.thisweek1.insert_one({"Tuần này":thisweek1})
 def insert_lineup(a,b,c,d):

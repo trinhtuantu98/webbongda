@@ -15,7 +15,7 @@ while True:
         match={}
         b=v["time"]
         w=datetime.date(b).isocalendar()[1]
-        if w==weeknumber:
+        if w == weeknumber:
             match['team1']=v["team1"]
             match["team2"]=v["team2"]
             match["time"]=v["time"]
