@@ -4,7 +4,7 @@ from datetime import datetime,timedelta
 from db import insert_data,clear_data2
 import time
 import re
-team = ['MU','Ars','MC','leipzig','Atletico','Barce','Bayern','Chel','Dortmun','Inter','Juv','Liv','Monaco','Napoli','PSG','Real','Roma','Tot']
+team = ['MU','Ars','MC','leipzig','Atletico','Barce','Bayern','Chel','Dortmun','Inter','Juv','Liv','Monaco','Napoli','PSG','Real','olympique lyonnais','Tot']
 browser = webdriver.Chrome()
 while True:
     so_team = 0
